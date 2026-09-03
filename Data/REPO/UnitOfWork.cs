@@ -15,6 +15,7 @@ public class UnitOfWork : IUnitOfWork
     public IGenericRepository<Plan> Plans { get; }
     public IGenericRepository<Membership> Memberships { get; }
     public IGenericRepository<Branch> Branches { get; }
+    public IGenericRepository<Studio> Studios { get; }
     public IGenericRepository<Trainer> Trainers { get; }
     public IGenericRepository<ClassSession> ClassSessions { get; }
     public IGenericRepository<Booking> Bookings { get; }
@@ -28,6 +29,7 @@ public class UnitOfWork : IUnitOfWork
         Plans = new GenericRepository<Plan>(_context);
         Memberships = new GenericRepository<Membership>(_context);
         Branches = new GenericRepository<Branch>(_context);
+        Studios = new GenericRepository<Studio>(_context);
         Trainers = new GenericRepository<Trainer>(_context);
         ClassSessions = new GenericRepository<ClassSession>(_context);
         Bookings = new GenericRepository<Booking>(_context);

@@ -10,6 +10,7 @@ public interface IUnitOfWork
     IGenericRepository<Plan> Plans { get; }
     IGenericRepository<Membership> Memberships { get; }
     IGenericRepository<Branch> Branches { get; }
+    IGenericRepository<Studio> Studios { get; }
     IGenericRepository<Trainer> Trainers { get; }
     IGenericRepository<ClassSession> ClassSessions { get; }
     IGenericRepository<Booking> Bookings { get; }

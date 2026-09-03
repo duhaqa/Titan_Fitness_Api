@@ -120,6 +120,23 @@ namespace Titan_Fitness.Controllers
         }
 
         /// <summary>
+        /// تجديد اشتراك منتهي بنفس شروط الخطة التي اشتُري بها
+        /// </summary>
+        [HttpPost("{id:int}/renew")]
+        [Authorize(Roles = "Admin,Manager,Receptionist")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> RenewMembership(
+            int id,
+            CancellationToken cancellationToken)
+        {
+            var command = new RenewMembershipCommand(new RenewMembershipDto { MemberId = id });
+            var newMembershipId = await _mediator.Send(command, cancellationToken);
+
+            return Ok(new { membershipId = newMembershipId });
+        }
+
+        /// <summary>
         /// تجميد اشتراك المشترك
         /// </summary>
         [HttpPost("{id:int}/freeze")]
