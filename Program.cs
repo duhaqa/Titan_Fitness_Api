@@ -6,12 +6,10 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Titan_Fitness.application_layer;
-using Titan_Fitness.application_layer; // ÊÃßÏí ãä ÊØÇÈŞ ÇáÜ namespace áßáÇÓ ValidationBehavior
 using Titan_Fitness.Data.DB;
 using Titan_Fitness.Domain.Interfaces;
 using Titan_Fitness.Data.REPO;
 using Titan_Fitness.Data;
-
 
 namespace Titan_Fitness
 {
@@ -64,7 +62,7 @@ namespace Titan_Fitness
                     Scheme = "Bearer",
                     BearerFormat = "JWT",
                     In = ParameterLocation.Header,
-                    Description = "ÇÏÎáí ÇáÜ Token åäÇ:"
+                    Description = "ÇÏÎá ÇáÜ Token åäÇ:"
                 });
 
                 c.AddSecurityRequirement(new OpenApiSecurityRequirement
@@ -104,7 +102,7 @@ namespace Titan_Fitness
                 app.UseSwaggerUI(c =>
                 {
                     c.SwaggerEndpoint("/swagger/v1/swagger.json", "Titan Fitness API V1");
-                    c.RoutePrefix = string.Empty; // íİÊÍ Swagger ãÈÇÔÑÉ ÚäÏ ÊÔÛíá ÇáãÔÑæÚ
+                    c.RoutePrefix = "swagger"; // íÖãä Úãá ÇáÑÇÈØ Úáì /swagger ÈÔßá ÕÍíÍ
                 });
             }
 
